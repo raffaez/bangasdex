@@ -1,0 +1,2 @@
+# bangasdex
+pokedex do bangas
