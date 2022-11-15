@@ -1,30 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+
+:root {
+  --verde: #70d1b9;
+  --border-radius-size: 14px;
+  --border-radius-btn : 20px;
+
+  --adc: #c54141;
+  --assassino: #341d78;
+  --mago: #155487;
+  --soldado: #551128;
+  --tank: #784212;
+  --sup: #0e626e;
+
+  --mid: #69c9c1;
+  --roam: #d66d50;
+  --gold: #fcc729;
+  --xp: #bb8fce;
+  --jungle: #28b463;
+}
 
 * {
   margin: 0;
   padding: 0;
+}
+
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   height: 100vh;
   background: #E1E8EC;
+}
+
+main {
+  padding-top: 60px;
+}
+
+a {
+  text-decoration: none;
 }
 
 nav,
 #titulo,
 .logo,
-button {
+#home-left a,
+.card-nome,
+input[type="submit"] {
   font-family: GalanoGrotesqueDEMOBold;
 }
 
 nav {
+  position: fixed;
+  width: 100%;
+  height: 60px;
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 1%;
   align-items: center;
   background-color: #4B4E6D;
+  z-index: 2;
 }
 
 .logo {
@@ -42,10 +79,9 @@ ul li {
 }
 
 ul li a {
-  text-decoration: none;
   color: #b0bed2;
   padding: 8px 25px;
-  border-radius: 20px;
+  border-radius: var(--border-radius-btn);
   transition: all .5s ease;
 }
 
@@ -57,13 +93,13 @@ ul li a {
 #btn-login a:hover,
 #btn-login a:active {
   color: #fff;
-  background-color: #70D1B9;
+  background-color: var(--verde);
 }
 
 ul li a:hover,
 ul li a:active {
   color: #fff;
-  background-color: #70D1B9;
+  background-color: var(--verde);
 }
 
 #icon {
@@ -81,7 +117,7 @@ ul li a:active {
 }
 
 #icon:hover {
-  background-color: #84DCC6;
+  background-color: var(--verde);
 }
 
 #icon:hover svg {
@@ -92,32 +128,443 @@ ul li a:active {
   display: none;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
+  align-items: center;
+  height: 80vh;
+}
 
+.container > div {
+  margin: 5% 0;
+  width: 35%;
+}
+
+#home img {
+  width: 130%;
+}
+
+#titulo {
+  font-size: 3.5rem;
+  color: #4B4E6D;
+}
+
+#subtitulo {
+  font-size: 2rem;
+  font-weight: 200;
+  color: #919cac;
+}
+
+#home-left {
+  display: flex;
+  flex-direction: column;
+}
+
+#home-left p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #919cac;
+  padding: 8% 0 5% 0;
+  text-align: justify;
+}
+
+#home-left a {
+  width: 35%;
+  margin-left: 2%;
+  background-color: var(--verde);
+  border-radius: var(--border-radius-btn);
+  border: none;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+#home-left a:hover {
+  color: #D8E5E6;
+  background-color: #919cac;
+}
+
+/* CARDS */
+.card-container {
+  margin: auto;
+  padding-bottom: 3%;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wrapper {
+  padding-top: 3%;
+  margin: auto;
+  width: 30%;
+}
+
+.card {
+  background: #fff;
+  width: 90%;
+  display: inline-block;
+  margin: auto;
+  border-radius: var(--border-radius-size);
+  position: relative;
+  text-align: center;
+  box-shadow: -1px 15px 30px -12px black;
+  z-index: 1;
+}
+
+.card-image {
+  margin-bottom: 8%;
+  border-top-left-radius: var(--border-radius-size);
+  border-top-right-radius: var(--border-radius-size);
+}
+
+.card-image img {
+  width: 100%;
+  border-top-left-radius: var(--border-radius-size);
+  border-top-right-radius: var(--border-radius-size);
+}
+
+.card-image_adc img {
+  background: linear-gradient(0deg, var(--adc) 0%, #ee8980 33%, #f0d5d2 100%);
+}
+
+.card-image_assassino img {
+  background: linear-gradient(0deg, var(--assassino) 0%, #7252D1 33%, #9D81F1 100%);
+}
+
+.card-image_mago img {
+  background: linear-gradient(0deg, var(--mago) 0%, #167999 33%, #85c4db 100%);
+}
+
+.card-image_soldado img {
+  background: linear-gradient(0deg, var(--soldado) 0%, #b74d71 33%, #c16282 100%);
+}
+
+.card-image_sup img {
+  background: linear-gradient(0deg, var(--sup) 0%, #50b0bf 33%, #85c5ce 100%);
+}
+
+.card-titulo {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 1%;
+}
+
+.card-titulo_adc {
+  color: var(--adc);
+}
+
+.card-titulo_assassino {
+  color: var(--assassino);
+}
+
+.card-titulo_mago {
+  color: var(--mago);
+}
+
+.card-titulo_soldado {
+  color: var(--soldado);
+}
+
+.card-titulo_sup {
+  color: var(--sup);
+}
+
+.card-titulo_tank {
+  color: var(--tank);
+}
+
+.card-nome {
+  font-size: 1.3rem;
+  color: #000;
+  font-weight: 900;
+}
+
+.card-info {
+  margin: auto;
+  width: 70%;
+  font-size: .8rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-info > * {
+  margin-top: 3%;
+  padding: 1% 3%;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.card-info_mago {
+  background-color: var(--mago);
+}
+
+.card-info_assassino {
+  background-color: var(--assassino);
+}
+
+.card-info_adc {
+  background-color: var(--adc);
+}
+
+.card-info_soldado {
+  background-color: var(--soldado);
+}
+
+.card-info_sup {
+  background-color: var(--sup);
+}
+
+.card-info_tank {
+  background-color: var(--tank);
+}
+
+.card-info_mid {
+  background-color: var(--mid);
+}
+
+.card-info_xp {
+  background-color: var(--xp);
+}
+
+.card-info_gold {
+  background-color: var(--gold);
+}
+
+.card-info_jungle {
+  background-color: var(--jungle);
+}
+
+.card-info_roam {
+  background-color: var(--roam);
+}
+
+.card-descricao {
+  text-align: justify;
+  padding: 3%;
+  margin-top: 2%;
+  color: #5c6b7e;
+  font-size: 1rem;
+}
+
+.card-atributos_adc {
+  background: var(--adc);
+}
+
+.card-atributos_assassino {
+  background: var(--assassino);
+}
+
+.card-atributos_mago {
+  background: var(--mago);
+}
+
+.card-atributos_soldado {
+  background: var(--soldado);
+}
+
+.card-atributos_sup {
+  background: var(--sup);
+}
+
+.card-atributos_adc .card-terco{
+  border-right: 1px solid #983434;
+}
+
+.card-atributos_assassino .card-terco{
+  border-right: 1px solid #210e5b;
+}
+
+.card-atributos_mago .card-terco{
+  border-right: 1px solid #0f3e65;
+}
+
+.card-atributos_soldado .card-terco{
+  border-right: 1px solid #420e1f;
+}
+
+.card-atributos_sup .card-terco{
+  border-right: 1px solid #0b4e58;
+}
+
+.card-atributos {
+  color: #fff;
+  border-bottom-left-radius: var(--border-radius-size);
+  border-bottom-right-radius: var(--border-radius-size);
+}
+
+.card-atributos .card-terco {
+  width: 33%;
+  float: left;
+  padding: 8% 5%;
+}
+
+.card-atributos sup {
+  position: absolute;
+  bottom: 4px;
+  font-size: .9rem;
+  margin-left: 2px;
+}
+
+.card-atributos .atributo {
+  position: relative;
+  font-size: 1.5em;
+  margin-bottom: 5%
+}
+
+.card-atributos .atributo-valor {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.card-atributos .sem-borda {
+  border-right: none;
+}
+/* /CARDS */
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+#sub {
+  color: #919cac;
+  margin: 2% 4%;
+  text-align: right;
+  padding-right: 6%;
+  transition: all 0.5s ease;
+}
+
+#sub > span {
+  font-weight: bold;
+}
+
+#sub a,
+#sub a:visited {
+  color: #626973;
+}
+
+#sub a:hover {
+  color: #4B4E6D;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin: 3% 0 1% 0;
+  padding: 3%;
+  border: none;
+  border-radius: 4px;
+  background-color: #4B4E6D;
+  color: #fff;
+  font-size: 1rem;
+  transition: all .5s ease;
+}
+
+input[type="submit"] {
+  width: 90%;
+  padding: 3%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--verde);
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #8cdac7;
+}
+
+::placeholder {
+  color: #7c7ea5;
+}
+
+input:hover {
+  background-color: #595c7f;
+}
+
+input:focus {
+  outline: none;
+}
+
+#login img {
+  width: 150%;
+}
+
+#login-left {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-left {
+  width: 40%;
+}
+
+/* MEDIUM */
+@media screen and (max-width: 1024px) {
+  main{
+    padding-top: 10%;
+  }
+
+  .wrapper {
+    width: 45%;
+  }
+
+  #home-left a {
+    font-size: 1rem;
+  }
+
+  #login-left {
+    width: 50%;
+  }
+}
+
+/* SMALL */
 @media screen and (max-width: 768px) {
+  main {
+    padding-top: 15%;
+  }
+
   nav {
     border-bottom: 1px solid #455468;
   }
+
+  nav .logo {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
   ul {
     position: absolute;
     width: 100%;
-    height: calc(100vh - 64px);
+    height: 100vh;
     background-color: #4B4E6D;
     left: 0;
     top: 0;
     text-align: center;
     display: none;
-    margin-top: 64px;
+    margin-top: 60px;
     font-size: 1.2rem;
   }
 
   ul li {
     display: block;
-    padding: 10px 15px;
+    padding: 2% 5%;
   }
 
   ul li a {
     display: block;
-    padding: 10px 0;
+    padding: 2% 0;
   }
 
   #icon {
@@ -127,66 +574,43 @@ ul li a:active {
   #checkbox:checked~ul {
     display: block;
   }
-}
 
-.container {
-  display: flex;
-  justify-content: center;
-  padding-top: 3%;
-}
+  #checkbox:checked~#icon {
+    background-color: var(--verde);
+  }
 
-.container > div {
-  width: 30%;
-}
+  #checkbox:checked~#icon svg {
+    color: #fff;
+  }
 
-.container img {
-  width: 150%;
-}
+  #home-img,
+  #login-img {
+    display: none;
+  }
 
-@media (max-width: 500px) {
-  .container {
+  #home-left {
+    width: 70%;
+  }
+
+
+  #subtitulo {
+    font-size: 1.5rem;
+  }
+
+  #home-left p {
+    padding: 5% 0 5% 0;
+  }
+
+  #home-left a {
+    align-self: center;
+  }
+
+  .card-container{
     flex-direction: column;
   }
-}
 
-#titulo {
-  font-size: 3rem;
-  color: #4B4E6D;
-}
-
-#subtitulo {
-  font-size: 2rem;
-  font-weight: 500;
-  color: #919cac;
-}
-
-#home-left {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-}
-
-#home-left p {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #919cac;
-  padding: 8% 0 5% 0;
-}
-
-#home-left button {
-  width: 35%;
-  height: 12%;
-  margin-left: 2%;
-  background-color: #70D1B9;
-  border-radius: 20px;
-  border: none;
-  font-size: 1rem;
-  color: #fff;
-  cursor: pointer;
-  transition: all .5s ease;
-}
-
-#home-left button:hover {
-  color: #D8E5E6;
-  background-color: #919cac;
+  .wrapper {
+    width: 70%;
+    padding-bottom: 3%;
+  }
 }
