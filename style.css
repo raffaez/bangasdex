@@ -48,7 +48,8 @@ nav,
 .logo,
 #home-left a,
 .card-nome,
-input[type="submit"] {
+input[type="submit"],
+.mini-card_nome {
   font-family: GalanoGrotesqueDEMOBold;
 }
 
@@ -143,6 +144,7 @@ ul li a:active {
 
 #home img {
   width: 130%;
+  animation: float 3s ease-in-out infinite;
 }
 
 #titulo {
@@ -199,7 +201,10 @@ ul li a:active {
 }
 
 .wrapper {
+  display: flex;
+  align-items: flex-start;
   padding-top: 3%;
+  padding-bottom: 2.5%;
   margin: auto;
   width: 30%;
 }
@@ -217,6 +222,7 @@ ul li a:active {
 }
 
 .card-image {
+  position: relative;
   margin-bottom: 8%;
   border-top-left-radius: var(--border-radius-size);
   border-top-right-radius: var(--border-radius-size);
@@ -246,6 +252,10 @@ ul li a:active {
 
 .card-image_sup img {
   background: linear-gradient(0deg, var(--sup) 0%, #50b0bf 33%, #85c5ce 100%);
+}
+
+.card-image_tank img {
+  background: linear-gradient(0deg, var(--tank) 0%, #c07636 33%, #eaa262 100%);
 }
 
 .card-titulo {
@@ -280,6 +290,7 @@ ul li a:active {
 }
 
 .card-nome {
+  text-transform: capitalize;
   font-size: 1.3rem;
   color: #000;
   font-weight: 900;
@@ -291,6 +302,7 @@ ul li a:active {
   font-size: .8rem;
   display: flex;
   justify-content: space-evenly;
+  text-transform: capitalize;
 }
 
 .card-info > * {
@@ -372,6 +384,10 @@ ul li a:active {
   background: var(--sup);
 }
 
+.card-atributos_tank {
+  background: var(--tank);
+}
+
 .card-atributos_adc .card-terco{
   border-right: 1px solid #983434;
 }
@@ -390,6 +406,10 @@ ul li a:active {
 
 .card-atributos_sup .card-terco{
   border-right: 1px solid #0b4e58;
+}
+
+.card-atributos_tank .card-terco{
+  border-right: 1px solid #61350e;
 }
 
 .card-atributos {
@@ -510,9 +530,74 @@ input:focus {
   width: 40%;
 }
 
+/* MINI-CARDS */
+
+.mini-card {
+  position: relative;
+  width: 90%;
+  margin: auto;
+}
+
+.mini-card img {
+  border-bottom-left-radius: var(--border-radius-size);
+  border-bottom-right-radius: var(--border-radius-size);
+}
+
+.mini-card .card-image {
+  margin-bottom: 0;
+}
+
+.mini-card_nome {
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(225, 232, 236, .8);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1%;
+  padding: 2% 3%;
+  text-align: center;
+  opacity: 0;
+  transition: 0.8s;
+  font-size: 1.3rem;
+  color: #3d405b;
+  font-weight: 900;
+  -webkit-transition: background-color .8s ease-in, opacity .8s ease; 
+  transition: background-color .8s ease-in, opacity .8s ease; 
+  cursor: pointer;
+}
+
+.mini-card:hover .mini-card_nome {
+  border-bottom-left-radius: var(--border-radius-size);
+  border-bottom-right-radius: var(--border-radius-size);
+  opacity: 1;
+}
+
+.card-image:hover .mini-card_nome {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  opacity: 1;
+}
+
+/* /MINI-CARDS */
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
 /* MEDIUM */
 @media screen and (max-width: 1024px) {
-  main{
+  main {
     padding-top: 10%;
   }
 
